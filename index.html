@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#68442e">
+    <title>Cảm ơn Hải Béo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            font-family: "Be Vietnam Pro", sans-serif;
+            background: #68442e;
+            color: #fff8ef;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            min-width: 320px;
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 50% 42%, rgba(187, 137, 87, .42), transparent 48%),
+                repeating-linear-gradient(135deg, transparent 0 28px, rgba(255, 237, 209, .025) 29px 30px),
+                #68442e;
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 22px;
+            width: min(100% - 36px, 510px);
+            padding: 36px 0;
+            text-align: center;
+            animation: arrive .8s ease-out both;
+        }
+
+        h1 {
+            margin: 0;
+            color: #fff7e9;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(2.1rem, 9vw, 3.6rem);
+            font-weight: 700;
+            line-height: 1.14;
+            text-shadow: 0 3px 0 rgba(54, 31, 19, .22);
+        }
+
+        .subtitle {
+            margin: -12px 0 0;
+            color: #f2d8bd;
+            font-size: .95rem;
+        }
+
+        .photo-frame {
+            width: min(100%, 370px);
+            aspect-ratio: 3 / 4;
+            padding: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .8);
+            border-radius: 3px;
+            background: #fff;
+            box-shadow: 0 18px 50px rgba(37, 21, 13, .4), 0 3px 8px rgba(37, 21, 13, .22);
+            transform: rotate(-1deg);
+        }
+
+        .photo-frame img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .photo-frame img[hidden] { display: none; }
+
+        .photo-picker {
+            display: none;
+            width: 100%;
+            height: 100%;
+            place-content: center;
+            gap: 12px;
+            padding: 24px;
+            color: #68442e;
+            background: #fffaf4;
+        }
+
+        .photo-picker.is-visible { display: grid; }
+
+        .photo-picker p {
+            max-width: 250px;
+            margin: 0;
+            font-size: .9rem;
+            line-height: 1.6;
+        }
+
+        .photo-picker label {
+            justify-self: center;
+            padding: 10px 16px;
+            border-radius: 2px;
+            background: #68442e;
+            color: #fff8ef;
+            cursor: pointer;
+            font-size: .85rem;
+            font-weight: 600;
+        }
+
+        .photo-picker input { display: none; }
+
+        .rain {
+            position: fixed;
+            z-index: 0;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .rain span {
+            position: absolute;
+            top: -12vh;
+            left: var(--left);
+            font-size: var(--size);
+            opacity: .75;
+            animation: fall var(--duration) var(--delay) linear infinite;
+            filter: drop-shadow(0 2px 2px rgba(42, 25, 16, .15));
+        }
+
+        @keyframes fall {
+            from { transform: translate3d(0, -5vh, 0) rotate(0deg); }
+            to { transform: translate3d(var(--drift), 115vh, 0) rotate(300deg); }
+        }
+
+        @keyframes arrive {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-height: 760px) {
+            main { gap: 14px; padding: 22px 0; }
+            .photo-frame { width: min(60vh, 330px); }
+            .subtitle { margin-top: -8px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="rain" aria-hidden="true">
+        <span style="--left: 5%; --size: 27px; --duration: 11s; --delay: -4s; --drift: 25px">💩</span>
+        <span style="--left: 17%; --size: 19px; --duration: 14s; --delay: -10s; --drift: -30px">💩</span>
+        <span style="--left: 29%; --size: 24px; --duration: 12s; --delay: -2s; --drift: 35px">💩</span>
+        <span style="--left: 42%; --size: 18px; --duration: 15s; --delay: -8s; --drift: -24px">💩</span>
+        <span style="--left: 56%; --size: 28px; --duration: 13s; --delay: -6s; --drift: 28px">💩</span>
+        <span style="--left: 68%; --size: 20px; --duration: 10s; --delay: -9s; --drift: -34px">💩</span>
+        <span style="--left: 81%; --size: 25px; --duration: 14s; --delay: -3s; --drift: 22px">💩</span>
+        <span style="--left: 94%; --size: 18px; --duration: 12s; --delay: -11s; --drift: -26px">💩</span>
+    </div>
+    <main>
+        <h1>Cảm ơn Hải Béo</h1>
+        <p class="subtitle">Vì đã là một người bạn thật đặc biệt</p>
+        <div class="photo-frame">
+            <img id="friend-photo" src="1790932105845_770513291088271149_9132890209663249442_f680ba7a1a2a765cf3ad845a9a73277c.jpg" alt="Ảnh kỷ niệm của Hải Béo">
+            <div id="photo-picker" class="photo-picker">
+                <p>Chọn ảnh Hải Béo để đặt vào khung kỷ niệm nhé.</p>
+                <label for="photo-file">Chọn ảnh</label>
+                <input id="photo-file" type="file" accept="image/*">
+            </div>
+        </div>
+    </main>
+    <script>
+        const photo = document.querySelector("#friend-photo");
+        const picker = document.querySelector("#photo-picker");
+        const fileInput = document.querySelector("#photo-file");
+
+        photo.addEventListener("error", () => {
+            photo.hidden = true;
+            picker.classList.add("is-visible");
+        });
+
+        fileInput.addEventListener("change", () => {
+            const file = fileInput.files?.[0];
+            if (!file) return;
+            photo.src = URL.createObjectURL(file);
+            photo.hidden = false;
+            picker.classList.remove("is-visible");
+        });
+    </script>
+</body>
+</html>
